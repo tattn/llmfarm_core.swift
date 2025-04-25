@@ -1,4 +1,4 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -90,7 +90,7 @@ var cSettings: [CSetting] =  [
                 .unsafeFlags(["-Ofast"], .when(configuration: .release)), 
 //                .unsafeFlags(["-O3"]),
                 .unsafeFlags(["-O3"], .when(configuration: .debug)),
-                 .unsafeFlags(["-mfma","-mfma","-mavx","-mavx2","-mf16c","-msse3","-mssse3"]), //for Intel CPU
+//                 .unsafeFlags(["-mfma","-mfma","-mavx","-mavx2","-mf16c","-msse3","-mssse3"]), //for Intel CPU
 //                .unsafeFlags(["-march=native","-mtune=native"],.when(platforms: [.macOS])),
 //                .unsafeFlags(["-mcpu=apple-a14"],.when(platforms: [.iOS])),// use at your own risk, I've noticed more responsive work on 12 pro max
                 .unsafeFlags(["-pthread"]),
@@ -126,7 +126,7 @@ var resources: [Resource] = [
 
 let package = Package(
     name: "llmfarm_core",
-    platforms: [.macOS(.v11),.iOS(.v15)],
+    platforms: [.macOS(.v15),.iOS(.v18)],
     products: [
         .library(
             name: "llmfarm_core",
